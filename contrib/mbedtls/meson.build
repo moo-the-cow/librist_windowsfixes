@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 if not builtin_mbedtls
-    mbedcrypto_lib = dependency('mbedcrypto', required: false)
+    mbedcrypto_lib = dependency('MbedTLS', required: false, method: 'cmake', modules: ['MbedTLS::mbedcrypto'])
     if not mbedcrypto_lib.found()
         mbedcrypto_lib = cc.find_library('mbedcrypto', required: required_library, has_headers: ['mbedtls/aes.h'])
         if not mbedcrypto_lib.found()
